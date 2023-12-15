@@ -3,9 +3,14 @@ import 'package:app/widgets/no_weather_body.dart';
 import 'package:app/widgets/weather_info_body.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +35,7 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
+      //trying to pop infoBody but it isn't need setstate 
       body: weatherModel == null ? const NoWeatherBody() : const WeatherInfoBody(),
     );
   }
