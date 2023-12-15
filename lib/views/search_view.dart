@@ -30,9 +30,7 @@ class SearchView extends StatelessWidget {
             //ussing this function if i need the value to be subimeted only (CHAT , LOGIN)
             onSubmitted: (value) async 
             {
-               WeatherModel weatherModel = await WeatherService(dio: Dio()).getCurrentWeather(cityName: value);
               //to get the weather page after search
-              // ignore: use_build_context_synchronously
               Navigator.pop(context);
             },
             // The first text field is focused on as soon as the app starts.

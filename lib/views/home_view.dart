@@ -1,7 +1,11 @@
+import 'package:app/Cubits/getWeatherCubit/getWeatherState.dart';
 import 'package:app/views/search_view.dart';
 import 'package:app/widgets/no_weather_body.dart';
 import 'package:app/widgets/weather_info_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../Cubits/getWeatherCubit/getWeatherCubit.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -36,7 +40,21 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
       //trying to pop infoBody but it isn't need setstate 
-      body: const NoWeatherBody(),
+      body: BlocBuilder<GetWeattherCubit, WeatherState>(
+        builder: (context, state) {
+          if(state is NoWeatherState)
+          {
+            return const NoWeatherBody();
+          }
+          else if(state is WeatherLoadedState)
+          {
+            return const WeatherInfoBody();
+          }
+          else {
+            return const Text('There is an error , please search again');
+          }
+        },
+      )
     );
   }
 }
