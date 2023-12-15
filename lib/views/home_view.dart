@@ -36,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
       //trying to pop infoBody but it isn't need setstate 
-      body: weatherModel == null ? const NoWeatherBody() : const WeatherInfoBody(),
+      body: const NoWeatherBody(),
     );
   }
 }

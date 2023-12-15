@@ -30,7 +30,7 @@ class SearchView extends StatelessWidget {
             //ussing this function if i need the value to be subimeted only (CHAT , LOGIN)
             onSubmitted: (value) async 
             {
-               weatherModel = await WeatherService(dio: Dio()).getCurrentWeather(cityName: value);
+               WeatherModel weatherModel = await WeatherService(dio: Dio()).getCurrentWeather(cityName: value);
               //to get the weather page after search
               // ignore: use_build_context_synchronously
               Navigator.pop(context);
@@ -70,4 +70,4 @@ class SearchView extends StatelessWidget {
 }
 
 //global var to be able to access this object in another page
-WeatherModel? weatherModel;
+// WeatherModel? weatherModel;
