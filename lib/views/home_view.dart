@@ -21,12 +21,9 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Weather App',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: const Color(0xff5FBDFF),
+       appBar: AppBar(
+        title: const Text('Weather App'),
+    
         actions: [
           IconButton(
             onPressed: () {
