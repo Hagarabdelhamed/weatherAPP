@@ -9,14 +9,17 @@ import '../Cubits/getWeatherCubit/getWeatherCubit.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
+  
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
+  
   @override
   Widget build(BuildContext context) {
+    var weatherModel = BlocProvider.of<GetWeattherCubit>(context).weatherModel;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -39,7 +42,7 @@ class _HomeViewState extends State<HomeView> {
           ),
         ],
       ),
-      //trying to pop infoBody but it isn't need setstate 
+       
       body: BlocBuilder<GetWeattherCubit, WeatherState>(
         builder: (context, state) {
           if(state is NoWeatherState)

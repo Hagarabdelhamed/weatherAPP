@@ -1,9 +1,6 @@
-
-import 'package:app/Services/weatherService.dart';
-import 'package:dio/dio.dart';
+import 'package:app/Cubits/getWeatherCubit/getWeatherCubit.dart';
 import 'package:flutter/material.dart';
-
-import '../models/weatherModel.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({Key? key}) : super(key: key);
@@ -28,8 +25,9 @@ class SearchView extends StatelessWidget {
             // onChanged: (value){},
 
             //ussing this function if i need the value to be subimeted only (CHAT , LOGIN)
-            onSubmitted: (value) async 
-            {
+            onSubmitted: (value) async {
+              var getWeather = BlocProvider.of<GetWeattherCubit>(context)
+                  .getWeather(cityName: value);
               //to get the weather page after search
               Navigator.pop(context);
             },
@@ -51,7 +49,7 @@ class SearchView extends StatelessWidget {
               ),
               hintText: "Enter City Name",
               suffixIcon: Icon(Icons.search),
-              
+
               //border before i pressed on it
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(
