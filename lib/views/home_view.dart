@@ -9,52 +9,49 @@ import '../Cubits/getWeatherCubit/getWeatherCubit.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
-  
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  
   @override
   Widget build(BuildContext context) {
     var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Scaffold(
-       appBar: AppBar(
-        title: const Text('Weather App'),
-    
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SearchView(),
-                  ));
-            },
-            icon: const Icon(Icons.search),
-            color: Colors.white,
-            iconSize: 30,
+        appBar: AppBar(
+          title: const Text(
+            'Weather App',
+            style: TextStyle(
+              color: Colors.white,
+            fontWeight: FontWeight.bold),
           ),
-        ],
-      ),
-       
-      body: BlocBuilder<GetWeatherCubit, WeatherState>(
-        builder: (context, state) {
-          if(state is NoWeatherState)
-          {
-            return const NoWeatherBody();
-          }
-          else if(state is WeatherLoadedState)
-          {
-            return const WeatherInfoBody();
-          }
-          else {
-            return const Text('There is an error , please search again');
-          }
-        },
-      )
-    );
+          backgroundColor: const Color(0xff5FBDFF),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchView(),
+                    ));
+              },
+              icon: const Icon(Icons.search),
+              color: Colors.white,
+              iconSize: 30,
+            ),
+          ],
+        ),
+        body: BlocBuilder<GetWeatherCubit, WeatherState>(
+          builder: (context, state) {
+            if (state is NoWeatherState) {
+              return const NoWeatherBody();
+            } else if (state is WeatherLoadedState) {
+              return const WeatherInfoBody();
+            } else {
+              return const Text('There is an error , please search again');
+            }
+          },
+        ));
   }
 }

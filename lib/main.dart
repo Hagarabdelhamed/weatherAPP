@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:app/Cubits/getWeatherCubit/getWeatherCubit.dart';
 import 'package:app/views/home_view.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +24,10 @@ class WeatherApp extends StatelessWidget {
         log("Theme Color: $themeColor");
 
         return MaterialApp(
+           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: themeColor,
+           
           ),
           home: const HomeView(),
         );
