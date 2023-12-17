@@ -26,7 +26,7 @@ class SearchView extends StatelessWidget {
 
             //ussing this function if i need the value to be subimeted only (CHAT , LOGIN)
             onSubmitted: (value) async {
-              var getWeather = BlocProvider.of<GetWeattherCubit>(context)
+              var getWeather = BlocProvider.of<GetWeatherCubit>(context)
                   .getWeather(cityName: value);
               //to get the weather page after search
               Navigator.pop(context);

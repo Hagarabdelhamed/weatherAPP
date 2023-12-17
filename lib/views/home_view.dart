@@ -19,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
   
   @override
   Widget build(BuildContext context) {
-    var weatherModel = BlocProvider.of<GetWeattherCubit>(context).weatherModel;
+    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -43,7 +43,7 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
        
-      body: BlocBuilder<GetWeattherCubit, WeatherState>(
+      body: BlocBuilder<GetWeatherCubit, WeatherState>(
         builder: (context, state) {
           if(state is NoWeatherState)
           {
