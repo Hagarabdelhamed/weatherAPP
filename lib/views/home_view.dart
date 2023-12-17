@@ -20,6 +20,7 @@ class _HomeViewState extends State<HomeView> {
     var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Scaffold(
         appBar: AppBar(
+          elevation: 2 ,
           title: const Text(
             'Weather App',
             style: TextStyle(

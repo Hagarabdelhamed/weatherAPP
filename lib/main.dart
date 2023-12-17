@@ -40,7 +40,10 @@ class WeatherApp extends StatelessWidget {
     );
   }
 
-  MaterialColor getThemeColor(String? weatherCondition) {
+  
+}
+
+MaterialColor getThemeColor(String? weatherCondition) {
     if (weatherCondition == null) {
       return Colors.green;
     }
@@ -88,4 +91,3 @@ class WeatherApp extends StatelessWidget {
         return Colors.blue;
     }
   }
-}
