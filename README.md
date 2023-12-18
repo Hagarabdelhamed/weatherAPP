@@ -1,6 +1,6 @@
-# app
+# Weather App
 
-A new Flutter project.
+A new Flutter project.Give You All Weather Information Based On City You Search
 
 ## Getting Started
 
